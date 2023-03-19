@@ -35,9 +35,12 @@ class BubbleSortVisualizer:
             y = self.data[k]
             if self.sorting_completed or k >= self.N - self.i:
                 glColor3f(0.0, 1.0, 0.0)
+            elif self.swapping and (k == self.j or k == self.j + 1):
+                glColor3f(1.0, 0.0, 0.0)
             else:
                 glColor3f(1.0, 1.0, 1.0)
             glRectf(x, 0, x + self.bar_width, y)
+
 
     def generate_data(self):
         self.data = [random.uniform(0, 1) for _ in range(self.N)]
